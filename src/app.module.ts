@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import * as Joi from '@hapi/joi';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
+import { NewsModule } from './news/news.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    NewsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

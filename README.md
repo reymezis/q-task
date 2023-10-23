@@ -8,6 +8,13 @@ Test task for q
 $ npm install
 ```
 
+## Build database
+
+```bash
+$ docker-compose up -d
+```
+## Add and configure .env
+
 ## Running the app
 
 ```bash
@@ -24,13 +31,7 @@ $ npm run start:prod
 ## Test
 
 ```bash
-# unit tests
-$ npm run test
-
 # e2e tests
 $ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
 
