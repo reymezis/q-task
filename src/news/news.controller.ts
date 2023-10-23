@@ -12,7 +12,9 @@ import { CreateNewsDto } from './dto/create-news.dto';
 import { UpdateNewsDto } from './dto/update-news.dto';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { AuthType } from 'src/auth/enums/auth-type.enum';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('news')
 @Controller('news')
 export class NewsController {
   constructor(private readonly newsService: NewsService) {}

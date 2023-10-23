@@ -13,7 +13,9 @@ import { SignUpDto } from './dto/sign-up.dto';
 import { Response, Request } from 'express';
 import { Auth } from './decorators/auth.decorator';
 import { AuthType } from './enums/auth-type.enum';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('auth')
 @Auth(AuthType.None)
 @Controller('auth')
 export class AuthController {
