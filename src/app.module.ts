@@ -7,6 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { NewsModule } from './news/news.module';
 import { AuthModule } from './auth/auth.module';
+import { LoggerModule } from 'nestjs-pino';
+import { configPino } from './common/pino.config';
 
 @Module({
   imports: [
@@ -18,6 +20,9 @@ import { AuthModule } from './auth/auth.module';
         DB_PASSWORD: Joi.required(),
         DB_NAME: Joi.required(),
       }),
+    }),
+    LoggerModule.forRoot({
+      pinoHttp: configPino,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
