@@ -10,6 +10,8 @@ import {
 import { NewsService } from './news.service';
 import { CreateNewsDto } from './dto/create-news.dto';
 import { UpdateNewsDto } from './dto/update-news.dto';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { AuthType } from 'src/auth/enums/auth-type.enum';
 
 @Controller('news')
 export class NewsController {
@@ -20,11 +22,13 @@ export class NewsController {
     return this.newsService.create(createNewsDto);
   }
 
+  @Auth(AuthType.None)
   @Get()
   findAll() {
     return this.newsService.findAll();
   }
 
+  @Auth(AuthType.None)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.newsService.findOne(+id);
